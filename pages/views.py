@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from pages.models import *
+from .forms import ReservationForm
 
 
 def home(request):
@@ -10,3 +11,18 @@ def home(request):
         'menu' : menu
     }
     return render(request, 'index.html', context=context)
+
+
+
+def reservation(request):
+    if request.method == "POST":
+        form = ReservationForm(data=request.POST)
+        if form.is_valid:
+            form.save()
+            return redirect('home')
+        else:
+            return render(request, 'index.html')
+    else:
+        return render(request, 'index.html')
+    
+

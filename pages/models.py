@@ -36,3 +36,23 @@ class Menu(models.Model):
     class Meta:
         verbose_name = 'menu'
         verbose_name_plural = 'menues'
+
+
+
+class ReservationModel(models.Model):
+    name = models.CharField(max_length=20)
+    email = models.EmailField()
+    phone = models.CharField(max_length=13)
+    message = models.TextField()
+    date = models.CharField(max_length=10)
+    time = models.CharField(max_length=15)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = 'reservation'
+        verbose_name_plural = 'reservations'
