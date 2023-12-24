@@ -16,7 +16,7 @@ def home(request):
 
 def reservation(request):
     if request.method == "POST":
-        form = ReservationForm(data=request.POST)
+        form = ReservationForm(request.POST)
         if form.is_valid:
             form.save()
             return redirect('home')
