@@ -56,3 +56,12 @@ class ReservationModel(models.Model):
     class Meta:
         verbose_name = 'reservation'
         verbose_name_plural = 'reservations'
+
+
+
+class GalleryModel(models.Model):
+    image = models.ImageField(upload_to="gallery")
+
+    class Meta:
+        verbose_name = 'gallery'
+        verbose_name_plural = 'galleries'

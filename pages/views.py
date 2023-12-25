@@ -6,9 +6,11 @@ from .forms import ReservationForm
 def home(request):
     scrolls = MainScrollModel.objects.all().order_by("-pk")
     menu = Menu.objects.all().order_by("-pk")
+    galleries = GalleryModel.objects.all().order_by("-pk")
     context = {
         'scrolls' : scrolls,
-        'menu' : menu
+        'menu' : menu,
+        'galleries' : galleries,
     }
     return render(request, 'index.html', context=context)
 
